@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/screens/add_new_todo_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -18,7 +19,14 @@ class _HomeScreenState extends State<HomeScreen> {
         centerTitle: true,
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (ctx) => const AddNewTodoScreen(),
+            ),
+          );
+        },
         child: const Icon(Icons.add),
       ),
     );
