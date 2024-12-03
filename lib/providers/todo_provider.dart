@@ -11,4 +11,16 @@ class TodoProvider extends ChangeNotifier {
     _allTodos.add(todo);
     notifyListeners();
   }
+
+  //To delete existing todo
+  void deleteTodo(String id) {
+    _allTodos.removeWhere((todo) => todo.id == id);
+    notifyListeners();
+  }
+
+  //To update existed todo
+  void updateTodo(int index, Todo newTodo) {
+    allTodos[index] = newTodo;
+    notifyListeners();
+  }
 }
