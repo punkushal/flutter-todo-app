@@ -5,8 +5,9 @@ import 'package:todo_app/providers/todo_provider.dart';
 import 'package:todo_app/widgets/edit_todo.dart';
 
 class TodoItem extends StatelessWidget {
-  const TodoItem({super.key, required this.todo});
+  const TodoItem({super.key, required this.todo, required this.index});
   final Todo todo;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +40,10 @@ class TodoItem extends StatelessWidget {
                 onPressed: () {
                   showDialog(
                     context: context,
-                    builder: (ctx) => const EditTodo(),
+                    builder: (ctx) => EditTodo(
+                      todo: todo,
+                      currentIndex: index,
+                    ),
                   );
                 },
                 icon: const Icon(Icons.edit),
