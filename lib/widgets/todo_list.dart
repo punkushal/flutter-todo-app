@@ -16,6 +16,7 @@ class TodoList extends StatelessWidget {
       itemCount: provider.allTodos.length,
       itemBuilder: (ctx, index) => TodoItem(
         todo: provider.allTodos[index],
+        index: index,
       ),
     );
   }
