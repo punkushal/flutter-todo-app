@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:todo_app/models/todo.dart';
+import 'package:todo_app/providers/todo_provider.dart';
 
 class AddNewTodoScreen extends StatefulWidget {
   const AddNewTodoScreen({super.key});
@@ -19,8 +22,22 @@ class _AddNewTodoScreenState extends State<AddNewTodoScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<TodoProvider>(context);
     return Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+          leading: IconButton(
+            onPressed: () {
+              provider.addNewTodo(
+                Todo(
+                  title: _titleController.text.trim(),
+                  description: _descriptionController.text.trim(),
+                ),
+              );
+              Navigator.pop(context);
+            },
+            icon: const Icon(Icons.arrow_back),
+          ),
+        ),
         body: Column(
           children: [
             //Input field for title of a todo
