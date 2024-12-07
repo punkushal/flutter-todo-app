@@ -8,7 +8,7 @@ class CustomTextField extends StatelessWidget {
     required this.vertical,
     required this.horizontal,
     this.controller,
-    this.hintText,
+    this.labelText,
     this.border,
     this.prefixIcon,
   });
@@ -16,7 +16,7 @@ class CustomTextField extends StatelessWidget {
   final double vertical;
   final double horizontal;
   final TextEditingController? controller;
-  final String? hintText;
+  final String? labelText;
   final InputBorder? border;
   final Widget? prefixIcon;
   @override
@@ -28,11 +28,12 @@ class CustomTextField extends StatelessWidget {
         controller: controller,
         decoration: InputDecoration(
           prefixIcon: prefixIcon,
-          hintText: hintText,
+          hintText: labelText,
           border: border,
           focusedBorder: OutlineInputBorder(
-            borderSide: const BorderSide(color: Colors.blueGrey),
-            borderRadius: BorderRadius.circular(8),
+            borderSide:
+                const BorderSide(color: Color.fromARGB(255, 222, 118, 53)),
+            borderRadius: BorderRadius.circular(12),
           ),
         ),
         onSubmitted: (value) {
